@@ -148,4 +148,20 @@
     git rm --cached *
     ```
 
-12. 
+12. 撤销上一次提交
+
+    情景演示(本应提交a.txt和b.txt)
+
+    ```bash
+    git add a.txt
+    git commit -m 'Forget'
+    ```
+
+    现在很后悔，于是发挥超能力
+
+    ```bash
+    git add b.txt
+    git commit --amend
+    ```
+
+13. 
