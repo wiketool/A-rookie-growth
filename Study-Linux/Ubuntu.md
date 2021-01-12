@@ -56,7 +56,43 @@
 3. ```reboot```重启
 4. ```logout``` 注销
 
+#### 用户账户类
 
+1. ```useradd```
+
+   ``` shell
+   useradd newaccount //创建一个用户newaccount
+   useradd -d /home/newaccount newaccount  //创建一个用户并指定主目录
+   ```
+
+2. ```passwd```
+
+   ```shell
+   passwd account 123  //给account指定密码123
+   ```
+
+3. ```userdel```
+
+   ```
+   userdel newaccount //仅删除用户
+   userdel -r newaccount //删除用户及主目录
+   ```
+
+4. ```id```
+
+   ```shell
+   #查询用户信息
+   id account  //查询account的账户信息
+   ```
+
+5. ```su```
+
+   ```shell
+   #从权限高的用户切换到权限低的用户不需要密码
+   su 用户名
+   ```
+
+   
 
 ## 基本命令语法
 
