@@ -1,9 +1,12 @@
-<!--
  * @Author: qie
  * @Date: 2021-01-10 10:33:33
  * @Description: A note of Linux-Ubuntu
--->
 # Ubuntu养成篇
+
+[TOC]
+
+
+
 ## 安装
 
 1. 从虚拟机安装镜像
@@ -26,6 +29,34 @@
    ```
    
 5. 然后就可以开心的玩耍了
+
+## Linux基本知识
+
+#### vi&vim编辑器
+
+1. w写入，q退出，q!不保存退出
+
+2. 快捷键
+   1. 拷贝当前行 ```yy``` ;拷贝当前行以下的5行 ```5yy```
+   2. 删除当前行```dd``` ;删除当前行向下的五行```5dd```
+   3. 在文件中查找某个单词 ```/关键字``` ；回车查找； ```n```下一个
+   4. ```:set nu```设置文件行号，```set nonu```取消
+   5. 快捷键G移到文档底端，```gg```移到文档开头
+   6. ```u```撤销动作
+   7. 移动到第八行  ```8 shift+g```
+   
+#### 关机&&重启&&注销
+
+1. ```shutdown```命令
+   - ```shutdown -h 10``` 10s后关机
+   - ```shutdown  -r 10 ``` 10s后重启
+2. ```halt```
+   - ```halt -p ``` 关机
+   - ```halt --reboot``` 重启
+3. ```reboot```重启
+4. ```logout``` 注销
+
+
 
 ## 基本命令语法
 
@@ -78,10 +109,17 @@ ls -l l?b*
 #### ```cp```命令（复制文件）
 
 ```shell
+# cp 中也可以使用通配符
 # cp source destination (将source文件复制一份并命名为destination)
 cp test1 test2 
 # 若目标文件已存在，直接使用 cp linux不会提示，应加上 -i 强制询问
-cp test1 test2 -i
-
+cp -i test1 test2
+# 复制该目录下所有的子文件及子目录
+cp -R -i TEST-1 TEST-2
 ```
 
+
+
+## Tips
+
+1. 可以使用Tab键自动补齐
