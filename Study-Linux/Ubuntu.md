@@ -1,6 +1,5 @@
- * @Author: qie
- * @Date: 2021-01-10 10:33:33
- * @Description: A note of Linux-Ubuntu
+[TOC]
+
 # Ubuntu养成篇
 
 
