@@ -120,7 +120,7 @@
 # 显示当前工作目录的绝对路径
 ```
 
-``` mkdir && rmdir ```
+#### ``` mkdir && rmdir ```
 
 ```shell
 # 创建目录
@@ -213,7 +213,7 @@ mv 旧文件路径/文件名 新文件路径
 mv 旧文件路径/文件名 新文件路径/新文件名
 ```
 
-```cat```
+#### ```cat```
 
 ```shell
 # 以只读模式打开文件
@@ -224,14 +224,14 @@ cat -n 文件名
 cat 文件名 | more
 ```
 
-```more```
+#### ```more```
 
 ```shell
 # 查看文件内容
 more 文件名
 ```
 
-```less```
+#### ```less```
 
 ```shell
 # 查找文件内容
@@ -239,7 +239,7 @@ less 文件名
 /[字符串]  # n 向下查找  N 向上查找
 ```
 
-``` >  &&  >> ```
+#### ``` >  &&  >> ```
 
 ```shell
 # 将ls -l 的内容追加至test.txt中
@@ -250,13 +250,13 @@ ls -l > test.txt
 cat 文件一 >> 文件二
 ```
 
-```echo```
+#### ```echo```
 
 ```shell
 echo [输出内容]
 ```
 
-```head && tail```  
+#### ```head && tail```  
 
 ```shell
 # 显示文件头部多少行的东西
@@ -267,7 +267,7 @@ tail -n 行数 文件名
 tail -f 文件名
 ```
 
-```ln```
+#### ```ln```
 
 ```shell
 # 软连接
@@ -275,7 +275,7 @@ ln -s 原文件或者目录 软链接名
 # 在软链接下使用 pwd 时，看到的仍然是软链接的目录
 ```
 
-```history```
+#### ```history```
 
 ```shell
 # 显示最近的10条历史命令
@@ -284,13 +284,53 @@ history 10
 !190
 ```
 
-```date```
+#### ```date```
 
 ```shell
 # 显示当前时间年月日时分秒
 date '+%Y %m %d %H %M %S'
 # 设置系统时间
 date -s '2018 10 10 11 22 22'
+```
+
+#### ```cal```
+
+```shell
+# if 'Command 'cal' not found'
+sudo apt-get install ncal
+# 显示2021年日历
+cal 2021
+```
+
+#### ```find```
+
+```shell
+# 查找/home下的名为3.c的属于jc用户的大小为10字节的文件
+find /home -name 3.c -user jc -size 10
+# 查找大于1k(M)的文件
+find ./ -size +1k(M)
+```
+
+#### ```locate```
+
+```shell
+# sudo apt-get install locate
+updatedb # 建立索引数据库
+locate 文件名
+```
+
+#### ```grep```
+
+```shell
+# 管道符'|'将前一个指令的处理结果输出传递给后一个指令处理
+# 在test中查找TEST
+cat test | grep -n TEST ( -n 显示匹配行及行号 -i 忽略大小写)
+```
+
+#### ```gzip && gunzip```
+
+```
+gzip 文件 # -k 保持源文件不被更改
 ```
 
 
