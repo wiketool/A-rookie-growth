@@ -327,10 +327,19 @@ locate 文件名
 cat test | grep -n TEST ( -n 显示匹配行及行号 -i 忽略大小写)
 ```
 
-#### ```gzip && gunzip```
+#### ```gzip && gunzip && zip && unzip && tar```
 
-```
-gzip 文件 # -k 保持源文件不被更改
+```shell
+gzip # 压缩文件  -k 保持源文件不被更改 -r 将目录下每一个文件压缩为单独的小文件
+gunzip # 解压文件 
+# 压缩整个目录
+zip -r 压缩文件名 要压缩的目录 
+# 将压缩文件解压至某个目录
+unzip -d /xxx/xxx/ AZip.zip
+# tar 将文件打包
+tar -zcvf 打包后的名字 文件1 文件2 ...
+# tar 解压
+tar -zxvf 压缩包名 -C /xxx/xxx
 ```
 
 
