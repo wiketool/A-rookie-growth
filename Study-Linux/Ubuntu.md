@@ -94,19 +94,30 @@
 
 7. ```whoami``` 查询当前用户
 
-8. 用户组
+8. 用户组 用户登录的目录
 
    ```shell
    # 添加用户组
    groupadd 组名
    # 删除用户组
    groupdel 组名
-   # 修改用户的主组
+   # 修改用户的所在组
    usermod -g 用户组 用户名
+   # 修改用户登录时的目录
+   usermod -d 目录 用户名
    # 将用户添加至组
    gpasswd -a 用户名 用户组
    # 将用户从组中移除
-   groupwd -d 用户名 用户组
+groupwd -d 用户名 用户组
+   ```
+   
+9. 文件权限
+
+   ```shell
+   # 文件类型+所有者权限-所在组其他用户权限-其他组的权限
+   -rw-r--r--
+   # 常用文件类型
+   # -普通文件；d目录；l软链接
    ```
 
    
@@ -172,7 +183,8 @@ ls -l
 # 过滤输出列表( ? 代表一个字符  * 代表零个或多个字符)
 ls -l l?b*
 # ls -F -R = ls -FR
-
+# human -readable size
+ls -h
 ```
 
 #### ```touch```
@@ -341,7 +353,75 @@ tar -zcvf 打包后的名字 文件1 文件2 ...
 tar -zxvf 压缩包名 -C /xxx/xxx
 ```
 
+#### ```chown && chgrp && chmod```
 
+```shell
+# 修改文件所有者(-R 递归生效)
+chown 用户 文件名
+# 修改文件所有者和所在组
+chown newown:newgroup 文件
+# 修改文件的组(-R 递归生效)
+chgrp 组名 文件名
+# 修改文件权限(r=4 读;w=2 写;x=1 执行)
+chmod u=rwx g=rx o=rx 文件或目录
+chmod 755 文件或目录
+# 将目录下所有文件递归的设置为755权限
+# 若无-R 则只改变该目录下的直接文件或目录权限,次级目录里的文件不改变
+chmod -R 755 目录 
+# 增加权限+ 减少权限-
+chmod u-x,g+w,o+x 文件
+```
+
+#### ```crontab```
+
+```shell
+# 编辑计划任务
+crontab -e
+# 删除计划任务
+crontab -d 
+# 列出计划任务
+crontab -l
+# 计划任务的语法 例子
+*/10 4 * * * [command] # 每天的4点 每隔十分钟执行一次command
+7 9 * * * [command] # 每天9点7分执行
+1 * * * * [command] # 每小时的一分执行命令
+0 0 15 7 * [command] # 每年的7月15日0点0分执行命令
+0 0 * * 3 [command] # 每周三执行命令
+0 0 * * 1,2 [command] # 每周一周二执行命令
+0 0 * * 1-3 [command] # 每周一到周三执行命令
+```
+
+## Linux  分区
+
+- ```lsblk -f``` 查看当前系统分区（挂载）
+
+-  分区、格式化、挂载、设置为自动挂载
+
+- ```shell
+  ls /dev # 找到对应的硬盘
+  # 分区
+  fdisk /dev/xxx
+  # fdisk命令详解
+  m 获得帮助列表
+  F 列出未分区的空闲区
+  n 添加分区
+  p 显示磁盘分区
+  d 删除分区
+  w 写入并推出
+  ```
+
+- ```shell
+  # 格式化
+  mkfs -t ext4 /dev/xxx
+  ```
+
+- ```shell
+  # 挂载 mount 设备名 文件目录
+  mount /dev/xxx /xxx/xxx
+  # 取消挂载 umount 设备名或者文件目录
+  ```
+
+  
 
 ## Tips
 
