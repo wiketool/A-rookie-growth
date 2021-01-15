@@ -445,7 +445,19 @@ crontab -l
 
 - 没整明白
 
+#### Linux进程管理
 
+```shell
+# 查找有无xx进程
+ps -aux | grep -n xx
+# 查看进程的父进程
+ps -ef | more
+# 查看进程树（并显示pid）
+pstree -p
+# 杀死进程[强制]
+kill [-9] pid
+killall name[支持通配符]
+```
 
 
 
