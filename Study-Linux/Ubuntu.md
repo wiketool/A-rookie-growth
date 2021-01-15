@@ -154,6 +154,7 @@ cd bin
 # '/'开头的路径为绝对路径
 # 否则为相对路径
 cd ~ 或者 cd 直接回到家目录
+cd ~root # 去到root的家目录
 ```
 
 ```shell
@@ -391,7 +392,7 @@ crontab -l
 0 0 * * 1-3 [command] # 每周一到周三执行命令
 ```
 
-## Linux  分区
+## Linux  磁盘分区、文件目录占用
 
 - ```lsblk -f``` 查看当前系统分区（挂载）
 
@@ -421,7 +422,32 @@ crontab -l
   # 取消挂载 umount 设备名或者文件目录
   ```
 
-  
+- ```shell
+  # 查询系统整体的磁盘占用情况
+  df -h
+  ```
+
+- ```shell
+  # 查询目录的磁盘占用(-a 含文件 -h 带计量单位 --max-depth 最大深度)
+  du -ah --max-depth=1 /home
+  ```
+
+  ```shell
+  # 查询/home/xx下多少文件夹
+  ls -l /home/xx/ | grep -n "^d" | wc -l
+  # 树状显示文件结构
+  tree
+  ```
+
+  #### Linux 网络
+
+> ubuntu从17.10开始，已放弃在/etc/network/interface里固定IP的配置，即使配置也不会生效，而是改成netplan方式
+
+- 没整明白
+
+
+
+
 
 ## Tips
 
