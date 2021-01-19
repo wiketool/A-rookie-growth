@@ -112,9 +112,11 @@
    doc/**/*.pdf
    ```
 
-9. ```bash
-   git diff
-   ```
+9.比较差异
+
+```bash
+git diff
+```
 
    > 此命令比较的是工作目录中当前文件和暂存区域快照之间的差异
 
@@ -148,7 +150,7 @@
     git rm --cached *
     ```
 
-12. 撤销上一次提交
+12. 撤销上一次提交并将上一次的更改与现在的更改合并
 
     情景演示(本应提交a.txt和b.txt)
 
@@ -164,4 +166,47 @@
     git commit --amend
     ```
 
-13. 
+## Git 基本命令
+
+- ```git commit```
+
+- ```git status```
+
+- ```git add```
+
+- ```git log```
+
+- ```git reset```
+
+  ```bash
+  ^^ 后退2步
+  ~2 后退2步
+  局部索引
+  --soft --hard --mixed
+  ```
+
+- ```git diff```
+
+  ```bash
+  git diff [文件名] # 将工作区中的文件和暂存区进行比较
+  git diff [本地库中历史版本] [文件名] #将工作区中的文件和本地库历史记录比较
+  # 不带文件名比较多个文件
+  ```
+
+- ```branch && checkout```
+
+  ```bash
+  git branch [optional -d -vv]
+  git checkout
+  ```
+
+- ```fetch && merge && pull```  
+
+  ```bash
+  git pull [name] [remote]
+  git fetch [name] [remote]
+  git merge [name/remote]
+  ```
+
+  
+
