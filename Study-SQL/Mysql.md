@@ -2,6 +2,12 @@
 
 ## Mysql
 
+### 三大范式
+
+1. 第一范式(确保每列保持原子性)
+2. 第二范式(确保表中的每列都和主键相关)
+3. 第三范式(确保每列都和主键列直接相关,而不是间接相关)
+
 ### 基本语法
 
 #### DDL - 数据定义语言（数据库、表、列）
@@ -130,4 +136,85 @@
 
 6. 排序查询
 
+   ORDER BY 排序字段1  排序方式 , ...
+
+   ​		排序方式
+
+   ​				ASC  升序排序
+
+   ​				DESC  降序排序
+
+7. 聚合函数
+
+   ​	COUNT()
+
+   ​	MAX()
+
+   ​	MIN()
+
+   ​	SUM()
+
+   ​	AVG()
+
+8. 分组查询
+
+   SELECT AVG(math) , MAX(math) FROM test WHERE ... GROUP BY SEX HAVING ...
+
+   ​		`WHERE ...` 在分组前进行条件限定
+
+   ​		`HAVING ...` 在分组后进行条件限定
+
+9. 分页查询
+
+   LIMIT 开始的索引,索引的条数
+
 #### DCL - 数据控制语言
+
+1. ##### 约束
+
+   1. 非空约束
+
+      ```sql
+      create table test(
+      	id int NOt NULL
+      )
+      alter table test modify id int NOt NULL
+      alter table test modify id int 
+      ```
+
+   2. 唯一约束  UNIQUE
+
+      · 唯一约束下的列的值可以有多个NULL
+
+   3. 主键约束 PRIMARY KEY
+
+      - 删除主键
+
+        `ALTER TABLE test DROP PRIMARY KEY`
+
+      - 一张表只能有一个主键
+      - 主键字段NOT NULL && UNIQUE
+      - 主键后可以跟随 `AUTO_INCREMENT`（自动增长）
+
+   4. 外键约束
+
+      ```sql
+      create table xxx(
+      	...
+          外键列
+          constraint 外键名称 foreign key (外键列名称) 		references 主表名(列字段名)
+      )
+      
+      alter table test drop primary key 外键名称
+      
+      alter table test add constraint ...
+      ```
+
+      - 级联更新
+
+        在外键设置的最后面加上 ON UPDATE CASCADE 
+
+      - 级联删除
+
+        ON DELETE CASCADE
+
